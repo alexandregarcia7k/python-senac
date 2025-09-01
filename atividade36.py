@@ -12,7 +12,16 @@ def senha_segura():
     numeros = input('Deseja números? (S/N) ').lower() == 's'
     simbolos = input('Deseja símbolos? (S/N) ').lower() == 's'
     
-    tamanho = int(input('Qual o tamanho da senha? '))
+    
+    while True:
+        try: 
+            tamanho = int(input('Qual o tamanho da senha? (min: 4) '))
+            if tamanho < 4:
+                print("O tamanho mínimo da senha é 4.")
+                continue
+            break
+        except ValueError:
+            print("Por favor, digite um número inteiro para o tamanho da senha.")
 
     caracteres = ''
     if maiscula:
@@ -24,8 +33,10 @@ def senha_segura():
     if simbolos:
         caracteres += string.punctuation
 
+
     if not caracteres:
-        raise ValueError("Você deve selecionar pelo menos um tipo de caractere!")
+        print("Você deve selecionar pelo menos um tipo de caractere!")
+        return senha_segura()
 
     senha = ''.join(secrets.choice(caracteres) for _ in range(tamanho))
     return senha

@@ -22,11 +22,11 @@ def jogo_adivinhacao(opcao):
     elif opcao == 2:
         numero_secreto = random.randint(1, 400)
         dificuldade = 400
-        tentativas = 10
+        tentativas = 15
     elif opcao == 3:
         numero_secreto = random.randint(1,900)
         dificuldade = 900
-        tentativas = 5
+        tentativas = 10
     else:
             print("Opção inválida para o jogo.")
             return
