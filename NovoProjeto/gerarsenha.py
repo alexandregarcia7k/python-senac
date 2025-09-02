@@ -41,6 +41,6 @@ def senha_segura():
     senha = ''.join(secrets.choice(caracteres) for _ in range(tamanho))
     return senha
 
-# Chamada
+
 senha = senha_segura()
 print(f'A senha gerada é: {senha}')
